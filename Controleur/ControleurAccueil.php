@@ -1,20 +1,33 @@
 <?php
 
-require_once 'Modele/Billet.php';
+require_once 'Modele/Modele.php';
+require_once 'Modele/Chapitre.php';
+require_once 'Modele/Admin.php';
 require_once 'Vue/Vue.php';
 
 class ControleurAccueil {
 
-  private $billet;
+    private $oneChapitre;
 
-  public function __construct() {
-    $this->billet = new Billet();
-  }
+    public function __construct() {
+       $this->chapitre = new chapitre(); // Bonne conscruct de base 
+    }
 
-  // Affiche la liste de tous les billets du blog
-  public function accueil() {
-    $billets = $this->billet->getBillets();
-    $vue = new Vue("Accueil");
-    $vue->generer(array('billets' => $billets));
-  }
+    // Affiche la page d'accueil 
+    public function accueil() {
+       $chapitre = $this->chapitre->getChapitre();
+       $vue = new Vue("Accueil");
+       $vue->generer(array('chapitre' => $chapitre));
+
+    }
+
+
+
+    // Affiche la page Contact
+    public function  Contact() {
+        $vue = new Vue("Contact");
+        $vue->generer(array());
+    }
+
+    
 }
