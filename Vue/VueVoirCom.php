@@ -20,11 +20,11 @@
       <h2> Voici les commentaires signalé par les utilisateurs : </h2> 
           <?php foreach ($ListeCommentaires as $CommentaireSignaler): ?>
               <div id="ComSignaler"> 
-                  <?= $CommentaireSignaler['COM_AUTEUR'] ?> a dit : <br/><hr> <?= $CommentaireSignaler['COM_CONTENU'] ?> <br/> 
+              <p>Billet numero :</p><?= $CommentaireSignaler['id_billet'] ?> <br/> <?= $CommentaireSignaler['auteur_com'] ?><br/> a dit : <br/>  <?= $CommentaireSignaler['contenu_com'] ?> <br/> 
                   <!-- Selectioner ce commentaire pour le Suprimer -->
                   <form method="post" action="index.php?action=SupprimerCommentaire">
-                      <input type="hidden" name="com_id" value=" <?= $CommentaireSignaler['COM_ID'] ?> " />  
-                      <input type="hidden" name="idchapsupr" value="<?= $CommentaireSignaler['CHA_ID'] ?>" />
+                      <input type="hidden" name="com_id" value=" <?= $CommentaireSignaler['id'] ?> " />  
+                      <input type="hidden" name="idchapsupr" value="<?= $CommentaireSignaler['id_billet'] ?>" />
                       <input type="submit" value="Supprimer le commentaire" class="bouton_signaler" />
                       </form>
               </div> 
@@ -37,11 +37,11 @@
      <h2> Voici les commentaires non signaler</h2>
           <?php foreach ($ListeCommentairesNonSignaler as $CommentaireNonSignaler): ?>
               <div id="ComSignaler"> 
-                  <?= $CommentaireNonSignaler['COM_AUTEUR'] ?> a dit :<br/><hr>  <?= $CommentaireNonSignaler['COM_CONTENU'] ?> <br/> 
+              <p>Billet numero :</p><?= $CommentaireSignaler['id_billet'] ?><br/><?= $CommentaireNonSignaler['auteur_com'] ?><br/> a dit :<br/>  <?= $CommentaireNonSignaler['contenu_com'] ?> <br/> 
                     <!-- Selectioner ce commentaire pour le Suprimer -->
                       <form method="post" action="index.php?action=SupprimerCommentaire">
-                      <input type="hidden" name="com_id" value=" <?= $CommentaireNonSignaler['COM_ID'] ?> " />  
-                      <input type="hidden" name="idchapsupr" value="<?= $CommentaireNonSignaler['CHA_ID'] ?>" />
+                      <input type="hidden" name="com_id" value=" <?= $CommentaireNonSignaler['id'] ?> " />  
+                      <input type="hidden" name="idchapsupr" value="<?= $CommentaireNonSignaler['id_billet'] ?>" />
                       <input type="submit" value="Supprimer le commentaire" class="bouton_signaler" />
                       </form>
               </div> 

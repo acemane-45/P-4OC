@@ -133,7 +133,7 @@ public function VoirCommentaire()  {
     $CommentaireSignaler  = $this->admin->AfficherCommentaireSignaler();
     $CommentaireNonSignaler  = $this->admin->AfficherCommentaireNonSignaler();
     
-    // Essai d'avoir le titre du chapitre --------------------------------------
+    // Essai d'avoir le titre du billet --------------------------------------
     
     
     $chapitre = $this->chapitre->getChapitre(); 

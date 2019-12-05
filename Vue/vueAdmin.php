@@ -23,7 +23,7 @@
          <form method="post" action="index.php?action=AjouterChapitre">
          <input id="TitreChapitre" name="TitreChap" type="text" placeholder="Titre de votre chapitre"  required />
          <br/>       
-         <textarea id="contenuChapitre" name="ContenuChap" rows="4" placeholder="Contenu du chapitre"  >  </textarea>
+         <textarea id="mytextarea" name="ContenuChap" rows="4" placeholder="Contenu du chapitre"  >  </textarea>
 	     <br/> 
          <input type="submit" value="Ajouter un chapitre" class="bouton_commenter" />
         </form>

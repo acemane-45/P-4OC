@@ -1,27 +1,34 @@
-/* couleurs
-#ffc013  	jaune (emphase)
-#666  		gris clair
-#bcbcbc  	gris moyen
+/*--------------------------------------*/
 
-*/
+
+/*               generalité             */
+
+
+/*--------------------------------------*/
 
 body {
     background: white;
     margin: 0;
+    font-size: 20px;
 }
 
 a {
-    /* lien de la page */
     text-decoration: none;
     color: black
 }
 
+
+/*--------------------------------------*/
+
+
+/*               header                 */
+
+
+/*--------------------------------------*/
+
 h2 {
     text-align: center;
-    font-family: Baskerville, Lato, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
 }
-
-.bg-gray {}
 
 header.visiteur {
     height: 200px;
@@ -33,24 +40,21 @@ header.visiteur {
 }
 
 H1.titre-page {
-    font-family: Baskerville, Lato, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
     margin: 0;
-    line-height: 150px;
+    line-height: 100px;
     color: red;
     font-weight: 300;
 }
 
 h2.titre-complement {
-    font-family: Baskerville, Lato, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-    margin: -50px 0 0 0;
+    margin: -10px 0 0 0;
     font-size: 1.2em;
-    color: #ffc013;
-    /* jaune : #ffc013 */
+    color: silver;
     font-weight: 300;
 }
 
 
-/* NAV */
+/*--------- NAV -----------*/
 
 nav {
     margin: 0 auto;
@@ -58,24 +62,17 @@ nav {
 }
 
 nav .menu {
-    margin: 0;
     display: flex;
     flex-flow: row wrap;
     align-content: space-around;
-    padding-left: 30px;
 }
 
 nav .menu li {
     display: block;
 }
 
-nav .menu li img {
-    padding-right: 100px;
-}
-
 nav .menu li a {
     display: block;
-    font-family: "roboto slab";
     line-height: 40px;
     padding: 0 25px;
     color: #666;
@@ -94,32 +91,64 @@ nav .menu>li:first-child {
 
 .menu>li.selected a,
 .menu>li>a:hover {
-    background: #ffc013;
+    background: silver;
 }
 
 .container {
     max-width: 1150px;
     margin: 0 auto;
+    display: inline-block;
 }
 
-.center {
+
+/*-------------------------------------------*/
+
+
+/*------ VueAcceuil / Liste Chapitre --------*/
+
+
+/*-------------------------------------------*/
+
+#TitreChap {
+    background-color: silver;
     text-align: center;
+    padding: 1px;
+    max-width: 50%;
     margin: auto;
-    margin-bottom: 25px;
 }
 
-.centerSyno {
+#DateChap {
+    background-color: #ffc013a9;
     text-align: center;
+    padding: 1px;
+    max-width: 50%;
     margin: auto;
-    font-size: 25px;
-    font-family: Baskerville, Lato, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+}
+
+#ContenuChap {
+    background-color: silver;
+    text-align: center;
+    padding: 1px;
+    max-width: 50%;
+    margin: auto;
+}
+
+hr {
+    max-width: 30%;
+    height: 0px;
+    border: 2px black solid;
+    margin-top: 25px;
+    margin-bottom: 15px;
 }
 
 
-/* Menu admin */
+/*----------------------------------*/
 
 
-/* ********************* */
+/*         Menu admin               */
+
+
+/*----------------------------------*/
 
 #navAdmin {
     text-align: center;
@@ -131,48 +160,35 @@ nav .menu>li:first-child {
 
 .LienNav {
     Color: white;
-    font-family: Baskerville, Lato, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
     padding-left: 15px;
 }
 
 .LienNav:hover {
-    Color: #ffc013;
+    Color: silver;
 }
 
 
-/* SECTION */
+/*-------------------------------------------*/
 
-section {
-    width: 100%;
-    height: 465px;
+
+/* ------------ FOOTER --------------------- */
+
+
+/*-------------------------------------------*/
+
+footer .link-zone {
+    height: 50px;
+    align-content: center;
 }
-
-
-/* FOOTER  */
 
 footer {
     background: url(../images/footer.jpg);
     background-size: cover;
-    height: 250px;
+    height: 100px;
     margin-top: 25px;
     margin: 0;
     z-index: 1;
-}
-
-footer.dark {
-    background: #1d222d;
-    background-size: cover;
-    height: 250px;
-    margin-top: 25px;
-}
-
-footer .link-zone {
-    height: 200px;
-    /* background:red;*/
-}
-
-footer .link-zone div {
-    width: 30%;
+    text-align: center;
 }
 
 footer .copyright {
@@ -182,33 +198,8 @@ footer .copyright {
 footer .copyright p {
     margin: 0;
     color: #bcbcbc;
-    text-align: center;
-    font-family: "roboto slab", serif;
-    font-size: .9em;
     height: 50px;
     line-height: 50px;
-}
-
-footer .link-zone h3 {
-    font-family: "caudex", Helvetica, Arial, sans-serif;
-    color: #FAFAFA;
-    font-weight: normal;
-    margin-bottom: 0;
-}
-
-footer .link-zone p {
-    margin-top: 15px;
-    font-family: "roboto slab", serif;
-    color: #99a;
-    font-weight: normal;
-    font-size: .8em;
-    line-height: 1.8em;
-    margin-bottom: 0;
-}
-
-footer .link-zone p span {
-    color: #ccd;
-    text-decoration: none;
 }
 
 footer .link-zone a {
@@ -216,46 +207,27 @@ footer .link-zone a {
     text-decoration: none;
 }
 
-.row {
-    /* Aligne le footer */
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-}
+
+/*-------------------------------------------*/
 
 
-/* VueAcceuil / Liste Chapitre */
+/*         acces administrateur              */
 
-.titreBillet {
-    margin-bottom: 2px;
-}
 
-#TitreChap {
-    background-color: #ffc013;
+/*-------------------------------------------*/
+
+.apc {
     text-align: center;
-    padding: 1px;
-    width: 80%;
-    margin: auto;
-}
-
-#DateChap {
-    background-color: #ffc013a9;
-    text-align: center;
-    padding: 1px;
-    width: 80%;
-    margin: auto;
-}
-
-hr {
-    width: 400px;
-    height: 0px;
-    border: 2px black solid;
-    margin-top: 25px;
-    margin-bottom: 15px;
 }
 
 
-/* VueChapitre */
+/*-------------------------------------------*/
+
+
+/*            VueChapitre                    */
+
+
+/*-------------------------------------------*/
 
 #titreReponses {
     text-align: center;
@@ -268,9 +240,6 @@ hr {
     font-size: 20px;
 }
 
-
-/* a voir */
-
 #ZoneCommentaire {
     /* Zone d'edition */
     text-align: center;
@@ -278,17 +247,17 @@ hr {
     margin: auto;
 }
 
-#imagePortrait {
-    margin: auto;
-    height: 700px;
-    width: 465px;
-}
+
+/*------------------------------------------*/
+
+
+/*            zone de commentaire           */
+
+
+/*------------------------------------------*/
 
 #Commentaire {
-    /* zone de commentaire */
-    padding: 1px;
     text-align: center;
-    background-color: #ffc01377;
     width: 50%;
     margin: auto;
 }
@@ -296,7 +265,7 @@ hr {
 #OneCommentaire {
     padding: 1px;
     text-align: center;
-    background-color: #ffc01377;
+    background-color: silver;
     width: 80%;
     margin: auto;
     border: 1px black solid;
@@ -304,7 +273,6 @@ hr {
 }
 
 #FirstLigneCommentaire {
-    /*   border : 1px red solid ; */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -325,32 +293,63 @@ Row2 {
 }
 
 
-/* Textaera ,form et bouton */
+/*-------------------------------------*/
+
+
+/*       Textaera ,form et bouton      */
+
+
+/*-------------------------------------*/
 
 textarea {
-    background-color: #ffc013;
+    background-color: silver;
     text-align: center;
     width: 600px;
     margin-top: 5px;
     margin: auto;
 }
 
+
+/*--------------------------------------------*/
+
+
+/*  Form admin ajouter chap et modif chap     */
+
+
+/*--------------------------------------------*/
+
 #ZoneAjouterChap {
-    /* Form admin ajouter chap et modif chap  */
     text-align: center;
-    width: 80%;
+    width: 40%;
     margin: auto;
+    margin-bottom: 25px;
 }
 
+
+/*--------------------------------------------*/
+
+
+/* Zone d'edition de commentaire Vue Chapitre */
+
+
+/*--------------------------------------------*/
+
 #ZoneAjouterCommentaire {
-    /* Zone d'edition de commentaire Vue Chapitre */
     text-align: center;
     width: 40%;
     margin: auto;
 }
 
+
+/*-------------------------------------------*/
+
+
+/* Selection de chapitre en liste deroulante */
+
+
+/*-------------------------------------------*/
+
 #selectionchapitre {
-    /* Selection de chapitre en liste deroulante */
     margin-bottom: 10px;
 }
 
@@ -359,16 +358,32 @@ textarea {
     margin-bottom: 10px;
 }
 
+
+/*-------------------------------------*/
+
+
+/* modification de chapitre ( titre )  */
+
+
+/*-------------------------------------*/
+
 #ModifTitre {
-    /* modification de chapitre ( titre ) */
     margin-bottom: 10px;
     width: 30%;
     text-align: center;
     font-weight: bold;
 }
 
+
+/*------------------------------------*/
+
+
+/* modification de chapitre ( titre ) */
+
+
+/*------------------------------------*/
+
 #ModifChapitre {
-    /* modification de chapitre ( titre ) */
     margin-bottom: 10px;
     width: 30%;
     text-align: center;
@@ -379,16 +394,18 @@ textarea {
     margin-top: 15px;
 }
 
-#ContenuChap {
-    background-color: #ffc01377;
-    text-align: center;
-    padding: 1px;
-    width: 80%;
-    margin: auto;
+.titreBillet {
+    margin-bottom: 2px;
 }
 
 
-/* *****VoirCom ***** */
+/*--------------------------------*/
+
+
+/*        VoirCom                 */
+
+
+/*--------------------------------*/
 
 #ComSignaler {
     border: 2px black solid;
@@ -398,7 +415,7 @@ textarea {
     margin: auto;
     margin-top: 10px;
     padding-top: 10px;
-    background-color: #ffc013;
+    background-color: silver;
 }
 
 #ContenerDivSignaler1 {
@@ -410,8 +427,16 @@ textarea {
     width: 40%;
 }
 
+
+/*-------------------------- -*/
+
+
+/* Commentaire non signaler   */
+
+
+/*----------------------------*/
+
 #ContenerDivSignaler2 {
-    /* Commentaire non signaler */
     margin: auto;
     border: 2px black solid;
     padding-bottom: 10px;
@@ -421,76 +446,19 @@ textarea {
 }
 
 
-/* Vue Livre */
-
-#ContenerLivre {
-    width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
-
-#Livre1,
-#Livre2,
-#Livre3 {
-    border: 0px black solid;
-    text-align: center;
-    width: 80%;
-    margin: auto;
-    margin-top: 20px;
-    display: flex;
-}
-
-#column1 {
-    height: 400px;
-    width: 50%;
-    background-color: #ffc013;
-}
-
-#column2 {
-    height: 400px;
-    width: 50%;
-    background-color: #ffc013a9;
-}
-
-.liensuite {
-    text-decoration: underline;
-    color: green;
-}
-
-.TitrePage {
-    text-align: center;
-    margin: auto;
-    font-size: 45px;
-    font-weight: bold;
-    font-family: Baskerville, Lato, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-    margin-bottom: 25px;
-    margin-top: 25px;
-    color: #ffc013;
-}
-
-#imageAlaska {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    /* pour que l'image soit invisible quand ca depasse */
-}
-
-#imagePortrait {
-    width: 100%;
-    height: auto;
-    margin: auto;
-    overflow: hidden;
-    /* pour que l'image soit invisible quand ca depasse */
-}
+/*----------------------------------*/
 
 
-/* page Contact */
+/*            page Contact          */
+
+
+/*----------------------------------*/
 
 .bouton_contact {
     margin-bottom: 10px;
     margin-top: 10px;
     color: black;
-    background-color: #ffc013;
+    background-color: silver;
     width: 200px;
 }
 
@@ -498,7 +466,7 @@ textarea {
     margin-bottom: 10px;
     margin-top: 10px;
     color: black;
-    background-color: #ffc013;
+    background-color: silver;
     width: 200px;
     margin-left: 5%;
 }
@@ -514,14 +482,79 @@ textarea {
     margin-bottom: 10px;
     margin-top: 10px;
     color: black;
-    background-color: #ffc013;
+    background-color: silver;
     width: 200px;
 }
 
+
+/*----------------------------------*/
+
+
+/* pour supprimer un chapitre        */
+
+
+/*----------------------------------*/
+
 #selectionchapitre {
-    /* pour supprimer un chapitre form */
     width: 500px;
     color: black;
     font-weight: bold;
     background-color: #ffc01377;
+}
+
+
+/*-------------média querie-----------------*/
+
+@media screen and (max-width: 780px) {
+    H1.titre-page {
+        margin: 0;
+        line-height: 60px;
+        color: red;
+        font-weight: 50;
+    }
+    #TitreChap {
+        background-color: silver;
+        text-align: center;
+        padding: 1px;
+        min-width: 80%;
+        margin: auto;
+    }
+    #DateChap {
+        background-color: #ffc013a9;
+        text-align: center;
+        padding: 1px;
+        min-width: 80%;
+        margin: auto;
+    }
+    #ContenuChap {
+        background-color: silver;
+        text-align: center;
+        padding: 1px;
+        min-width: 80%;
+        margin: auto;
+    }
+    #ZoneAjouterChap {
+        width: 100%;
+    }
+    #Commentaire {
+        width: 100%;
+    }
+    #ZoneAjouterCommentaire {
+        width: 100%;
+    }
+    #navAdmin {
+        height: 80px;
+    }
+    .LienNav {
+        padding-left: 6px;
+    }
+    #ContenerDivSignaler1 {
+        width: 90%;
+    }
+    #ContenerDivSignaler2 {
+        width: 90%;
+    }
+    #ComSignaler {
+        width: 80%;
+    }
 }

@@ -87,11 +87,10 @@ class Routeur {
                 // Suppression du billet a la base   // Suppr aussi les commentaires au clic 
                 if ($_GET['action'] == 'chapitresupr') {     
                     $this->ctrlAdmin->SuppressionChapitre(); // Suprimme le chapitre avec les commentaires avant 
-               
-           
+                          
                 }
 
-// **************A faire *************************** */ 
+ 
  
 
                 if ($_GET['action'] == 'SupprimerCommentaire') {  // Si l'action SupprimerCommentaire est effectuer alors :  
@@ -106,12 +105,7 @@ class Routeur {
             
 
 
-                if ($_GET['action'] == 'Synopsis') {  // Affiche la vue Synopsis 
-                    $this->ctrlAccueil->Synopsis();        
-                }     
-                if ($_GET['action'] == 'Livres') {  // Affiche la vue Synopsis 
-                    $this->ctrlAccueil->Livres();        
-                }       
+                     
                 if ($_GET['action'] == 'Contact') {  // Affiche la vue Synopsis 
                     $this->ctrlAccueil->Contact();        
                 }     

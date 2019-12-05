@@ -7,24 +7,24 @@
         <title><?= $titre ?></title>
         
 		
-        <!-- Javascript ( TinyMCE Cloud-->  
-        <script src="https://cloud.tinymce.com/stable/tinymce.min.js? apiKey =0wbmvo8vn0e8rwzz6wz60khgj1e86n1soo6sz9wjf6qtdaer"></script>
-        <script>tinymce.init({ selector:'textarea' });</script>  
+       <!--TinyMCE-->
+	<script src="https://cdn.tiny.cloud/1/0wbmvo8vn0e8rwzz6wz60khgj1e86n1soo6sz9wjf6qtdaer/tinymce/5/tinymce.min.js"></script> 
+	<script type="text/javascript">
+		tinymce.init({
+		selector: '#mytextarea',
+		valid_elements: "*[*]",  
+    });
+    </script>
         <!-- Script --> 
         <script src="Contenu/js/jquery-3.2.1.js"> </script>       <!-- Bibliotheque JavaScript Jquery   --> 
 
-
         <!-- CSS -->
-        <link rel="stylesheet" href="Contenu/css/style.css" /> 
-      
-		
-        
-	
-										
+        <link rel="stylesheet" href="Contenu/css/style.css" /> 									
+       
         <!-- Viewport pour enlever le dezoom sur mobile -->   
-        <META name="viewport" content="width=device-width,initial-scale=1.0,shrink-to_fit=no">          
-        <!-- FONT AWESOME -->
-		<link rel="stylesheet" href="Contenu/font-awesome/css/font-awesome.min.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">         
+       
  </head>
 
 <body class="bg-gray">
@@ -52,7 +52,7 @@
                      
                         <div>
                            
-                               <i class="fa fa-caret-right"></i> <a href="index.php?action=admin">Zone admin</a> </p> 
+                                <a href="index.php?action=admin">Zone admin</a> </p> 
                         </div>
                            
                  </div>  
@@ -62,9 +62,6 @@
                    <p>&copy; Projet n° 4 - OpenClassrooms DWJ</p>            
                 </div>
             </div>
-     </footer>
-
-
-        
+     </footer>       
     </body>
 </html>

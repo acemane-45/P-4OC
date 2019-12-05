@@ -7,7 +7,7 @@
               <a href="index.php?action=VoirCom"  class="LienNav">Voir les commentaires</a>
               <a href="index.php?action=Deconnexion"  class="LienNav">Deconnexion</a>   
       </nav>
-      <h2 class="TitrePage" > Modifier un chapitre </h2> 
+      <h2 class="TitrePage"> Modifier un chapitre </h2> 
       <hr> 
     <h2> Veuillez selectionner un chapitre pour le modifier </h2>
    <?php foreach ($chapitre as $oneChapitre): ?> 

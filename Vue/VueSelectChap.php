@@ -18,7 +18,7 @@
                 <input type="text" name="ModifTitreChap" id="ModifTitre" value=" <?=$chapitre['titre'] ?>   "  /> 
 
             <!--Contenu de modification --> 
-                <textarea name="ModifContenuChap" id="ModifChapitre" rows="10" cols="50">
+                <textarea name="ModifContenuChap" id="mytextarea" rows="10" cols="50">
                 <?= $chapitre['contenu'] ?>
                 </textarea>   
             
