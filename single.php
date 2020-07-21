@@ -9,16 +9,16 @@ require 'Article.php';
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Mon blog</title>
+    <title>Jean Forteroche blog</title>
 </head>
 
 <body>
 <div>
-    <h1>Mon blog</h1>
+    <h1>Bienvenue sur mon blog</h1>
     <p>En construction</p>
     <?php
     $article = new Article();
-    $articles = $article->getArticle(1);
+    $articles = $article->getArticle($_GET['articleId']);
     $article = $articles->fetch()
     ?>
     <div>
@@ -31,6 +31,7 @@ require 'Article.php';
     <?php
     $articles->closeCursor();
     ?>
+    <a href="home.php">Retour à l'accueil</a>
 </div>
 </body>
 </html>
