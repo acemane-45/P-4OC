@@ -1,10 +1,10 @@
 <?php
 //On inclut le fichier dont on a besoin (ici à la racine de notre site)
-require 'Database.php';
+require '../src/DAO/DAO.php';
 //Ne pas oublier d'ajouter le fichier Article.php
-require 'Article.php';
+require '../src/DAO/ArticleDAO.php';
 //Ne pas oublier d'ajouter le fichier Comment.php
-require 'Comment.php';
+require '../src/DAO/CommentDAO.php';
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ require 'Comment.php';
     <div id="comments" class="text-left" style="margin-left: 50px">
         <h3>Commentaires</h3>
         <?php
-        $comment = new Comment();
+        $comment = new \App\src\DAO\CommentDAO();
         $comments = $comment->getCommentsFromArticle($_GET['articleId']);
         while($comment = $comments->fetch())
         {

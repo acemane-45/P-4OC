@@ -1,6 +1,8 @@
 
 <?php
 
+namespace App\src\DAO;
+
 class Comment extends Database
 {
     //On récupére tous les commentaires associés à un article (qui sera passé en paramètre GET dans la page  single.php
