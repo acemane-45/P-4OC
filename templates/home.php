@@ -1,6 +1,8 @@
 <h1>Bienvenue sur mon blog</h1>
     <p>En construction</p>
+
 <?= $this->session->show('add_article'); ?>
+<?= $this->session->show('edit_article'); ?>
 <a href="../public/index.php?route=addArticle">Nouvel article</a>
 <?php
 foreach ($articles as $article)
