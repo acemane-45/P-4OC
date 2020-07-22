@@ -5,7 +5,7 @@ namespace App\src\constraint;
 class Validation
 {
 
-    //Renvoi vers la classe ArticleValidation et CommentValidation
+    //gestion de la classe Article
     public function validate($data, $name)
     {
         if($name === 'Article') {
@@ -13,6 +13,7 @@ class Validation
             $errors = $articleValidation->check($data);
             return $errors;
         }
+        //gestion de la classe Comment 
         elseif ($name === 'Comment') {
             $commentValidation = new CommentValidation();
             $errors = $commentValidation->check($data);
