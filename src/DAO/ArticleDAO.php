@@ -18,6 +18,7 @@ class ArticleDAO extends DAO
         return $article;
     }
 
+    //Permet de récupérer la liste de tout les articles
     public function getArticles()
     {
         $sql = 'SELECT id, title, content, author, createdAt FROM article ORDER BY id DESC';
@@ -31,6 +32,7 @@ class ArticleDAO extends DAO
         return $articles;
     }
 
+    //Permet de recupérer un article
     public function getArticle($articleId)
     {
         $sql = 'SELECT id, title, content, author, createdAt FROM article WHERE id = ?';
@@ -40,12 +42,14 @@ class ArticleDAO extends DAO
         return $this->buildObject($article);
     }
 
+    //Permet d'ajouter un article dans la BDD
     public function addArticle(Parameter $post)
     {
         $sql = 'INSERT INTO article (title, content, author, createdAt) VALUES (?, ?, ?, NOW())';
         $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author')]);
     }
 
+    //Permet de modifier un article dans la BDD
     public function editArticle(Parameter $post, $articleId)
     {
         $sql = 'UPDATE article SET title=:title, content=:content, author=:author WHERE id=:articleId';
@@ -57,11 +61,12 @@ class ArticleDAO extends DAO
         ]);
     }
 
+    //Permet de suprimer un article et son commentaire dans la BDD
     public function deleteArticle($articleId)
     {
-        $sql = 'DELETE FROM comment WHERE article_id = ?';
+        $sql = 'DELETE FROM comment WHERE article_id = ?';//commentaire
         $this->createQuery($sql, [$articleId]);
-        $sql = 'DELETE FROM article WHERE id = ?';
+        $sql = 'DELETE FROM article WHERE id = ?';//article
         $this->createQuery($sql, [$articleId]);
     }
 }
