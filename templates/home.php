@@ -12,6 +12,7 @@
 <?= $this->session->show('register'); ?>
 <?= $this->session->show('login'); ?>
 <?= $this->session->show('logout'); ?>
+<?= $this->session->show('delete_account'); ?>
 <a href="../public/index.php?route=register">Inscription</a>
 <a href="../public/index.php?route=login">Connexion</a>
 <a href="../public/index.php?route=addArticle">Nouvel article</a>
