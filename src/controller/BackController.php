@@ -64,4 +64,29 @@ class BackController extends Controller
         $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
         header('Location: ../public/index.php');
     }
+
+    //Méthode profile 
+    public function profile()
+    {
+        return $this->view->render('profile');
+    }
+
+     //Changé le mot de passe
+    public function updatePassword(Parameter $post)
+    {
+        if($post->get('submit')) {
+            $this->userDAO->updatePassword($post, $this->session->get('pseudo'));
+            $this->session->set('update_password', 'Le mot de passe a été mis à jour');
+            header('Location: ../public/index.php?route=profile');
+        }
+        return $this->view->render('update_password');
+    }
+     //deconexion
+    public function logout()
+    {
+        $this->session->stop();
+        $this->session->start();
+        $this->session->set('logout', 'À bientôt');
+        header('Location: ../public/index.php');
+    }
 }

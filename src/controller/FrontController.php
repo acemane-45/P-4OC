@@ -52,7 +52,7 @@ class FrontController extends Controller
         header('Location: ../public/index.php');
     }
 
-    //enregistrer un utilisateur
+    //méthode register associée dans le FrontController qui renvoie une vue regiter 
     public function register(Parameter $post)
     {
         if($post->get('submit')) {
@@ -72,5 +72,27 @@ class FrontController extends Controller
 
         }
         return $this->view->render('register');
+    }
+    //méthode login associée dans le FrontController qui renvoie une vue login 
+    public function login(Parameter $post)
+    {
+        //identifiant et le mot de passe sont valides, et on connecte l'utilisateur en utilisant le système de session
+        if($post->get('submit')) {
+            $result = $this->userDAO->login($post);
+            if($result && $result['isPasswordValid']) {
+                $this->session->set('login', 'Content de vous revoir');
+                $this->session->set('id', $result['result']['id']);
+                $this->session->set('pseudo', $post->get('pseudo'));
+                header('Location: ../public/index.php');
+            }
+            //informations est incorrectes, et on renvoie vers la page de login avec le message associé
+            else {
+                $this->session->set('error_login', 'Le pseudo ou le mot de passe sont incorrects');
+                return $this->view->render('login', [
+                    'post'=> $post
+                ]);
+            }
+        }
+        return $this->view->render('login');
     }
 }
