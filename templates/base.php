@@ -7,7 +7,7 @@
 <body>
     <div id="content">
     <h1>Bienvenue sur mon blog</h1>
-    <p>En construction</p>
+    <p>Un billet pour l'ALASKA</p>
         <?= $content ?>
     </div>
 </body>

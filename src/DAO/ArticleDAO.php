@@ -13,7 +13,6 @@ class ArticleDAO extends DAO
         $article->setId($row['id']);
         $article->setTitle($row['title']);
         $article->setContent($row['content']);
-        $article->setAuthor($row['author']);
         $article->setCreatedAt($row['createdAt']);
         return $article;
     }
@@ -21,7 +20,7 @@ class ArticleDAO extends DAO
     //Permet de récupérer la liste de tout les articles
     public function getArticles()
     {
-        $sql = 'SELECT id, title, content, author, createdAt FROM article ORDER BY id DESC';
+        $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id ORDER BY article.id DESC';
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
@@ -35,7 +34,7 @@ class ArticleDAO extends DAO
     //Permet de recupérer un article
     public function getArticle($articleId)
     {
-        $sql = 'SELECT id, title, content, author, createdAt FROM article WHERE id = ?';
+        $sql = 'SELECT id, title, content, createdAt FROM article WHERE id = ?';
         $result = $this->createQuery($sql, [$articleId]);
         $article = $result->fetch();
         $result->closeCursor();
@@ -43,20 +42,21 @@ class ArticleDAO extends DAO
     }
 
     //Permet d'ajouter un article dans la BDD
-    public function addArticle(Parameter $post)
+    public function addArticle(Parameter $post, $userId)
     {
-        $sql = 'INSERT INTO article (title, content, author, createdAt) VALUES (?, ?, ?, NOW())';
-        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $post->get('author')]);
+        $sql = 'INSERT INTO article (title, content, createdAt, user_id) VALUES (?, ?, NOW(), ?)';
+        $this->createQuery($sql, [$post->get('title'), $post->get('content'), $userId]);
     }
+    
 
     //Permet de modifier un article dans la BDD
     public function editArticle(Parameter $post, $articleId)
     {
-        $sql = 'UPDATE article SET title=:title, content=:content, author=:author WHERE id=:articleId';
+        $sql = 'UPDATE article SET title=:title, content=:content, user_id=:user_id WHERE id=:articleId';
         $this->createQuery($sql, [
             'title' => $post->get('title'),
             'content' => $post->get('content'),
-            'author' => $post->get('author'),
+            'user_id' => $userId,
             'articleId' => $articleId
         ]);
     }

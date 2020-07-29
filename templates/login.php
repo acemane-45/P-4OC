@@ -1,6 +1,5 @@
 <?php $this->title = "Connexion"; ?>
-<h1>Bienvenue sur mon blog</h1>
-<p>En construction</p>
+
 <?= $this->session->show('error_login'); ?>
 <div>
     <form method="post" action="../public/index.php?route=login">

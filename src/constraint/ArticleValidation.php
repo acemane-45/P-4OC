@@ -34,10 +34,7 @@ class ArticleValidation extends Validation
             $error = $this->checkContent($name, $value);
             $this->addError($name, $error);
         }
-        elseif($name === 'author') {
-            $error = $this->checkAuthor($name, $value);
-            $this->addError($name, $error);
-        }
+        
     }
 
     //Ajoute une erreur si un des champs n'est pas valide
@@ -72,16 +69,5 @@ class ArticleValidation extends Validation
         }
     }
 
-    private function checkAuthor($name, $value)
-    {
-        if($this->constraint->notBlank($name, $value)) {
-            return $this->constraint->notBlank('auteur', $value);
-        }
-        if($this->constraint->minLength($name, $value, 2)) {
-            return $this->constraint->minLength('auteur', $value, 2);
-        }
-        if($this->constraint->maxLength($name, $value, 255)) {
-            return $this->constraint->maxLength('auteur', $value, 255);
-        }
-    }
+   
 }
