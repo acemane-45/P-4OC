@@ -15,10 +15,11 @@ class Router
 
     public function __construct()
     {
-        $this->request = new Request();
+        
         $this->frontController = new FrontController();
         $this->backController = new BackController();
         $this->errorController = new ErrorController();
+        $this->request = new Request();
     }
 
     public function run()
@@ -30,6 +31,10 @@ class Router
                 if($route === 'article'){
                     $this->frontController->article($this->request->getGet()->get('articleId'));
                 }
+                elseif ($route === 'listarticles'){
+                    $this->frontController->listarticles($this->request->getGet()->get('articleId')); 
+                } 
+               
                 elseif ($route === 'addArticle'){
                     $this->backController->addArticle($this->request->getPost());
                 }

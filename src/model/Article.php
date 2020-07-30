@@ -17,13 +17,12 @@ class Article
     /**
      * @var string
      */
-    private $content;
-
+    private $content;  
     /**
      * @var string
      */
     private $author;
-
+    
     /**
      * @var \DateTime
      */
@@ -76,7 +75,7 @@ class Article
     {
         $this->content = $content;
     }
-
+    
     /**
      * @return string
      */
@@ -92,6 +91,7 @@ class Article
     {
         $this->author = $author;
     }
+   
 
     /**
      * @return \DateTime

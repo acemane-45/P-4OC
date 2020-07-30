@@ -20,7 +20,21 @@ class ArticleDAO extends DAO
     //Permet de récupérer la liste de tout les articles
     public function getArticles()
     {
-        $sql = 'SELECT article.id, article.title, article.content, user.pseudo, article.createdAt FROM article INNER JOIN user ON article.user_id = user.id ORDER BY article.id DESC';
+        $sql = 'SELECT id, title, content, createdAt FROM article ORDER BY id DESC';
+        $result = $this->createQuery($sql);
+        $articles = [];
+        foreach ($result as $row){
+            $articleId = $row['id'];
+            $articles[$articleId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $articles;
+    }
+    //pagination
+    //Permet de récupérer les 3 dernier articles
+    public function getArticlespagin()
+    {
+        $sql = 'SELECT id, title, content, createdAt FROM article ORDER BY id DESC LIMIT 3';
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
@@ -41,6 +55,8 @@ class ArticleDAO extends DAO
         return $this->buildObject($article);
     }
 
+     
+
     //Permet d'ajouter un article dans la BDD
     public function addArticle(Parameter $post, $userId)
     {
@@ -52,11 +68,11 @@ class ArticleDAO extends DAO
     //Permet de modifier un article dans la BDD
     public function editArticle(Parameter $post, $articleId)
     {
-        $sql = 'UPDATE article SET title=:title, content=:content, user_id=:user_id WHERE id=:articleId';
+        $sql = 'UPDATE article SET title=:title, content=:content WHERE id=:articleId';
         $this->createQuery($sql, [
             'title' => $post->get('title'),
             'content' => $post->get('content'),
-            'user_id' => $userId,
+           
             'articleId' => $articleId
         ]);
     }

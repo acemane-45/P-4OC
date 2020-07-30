@@ -8,8 +8,16 @@ class FrontController extends Controller
 {
     public function home()
     {
-        $articles = $this->articleDAO->getArticles();
+        $articles = $this->articleDAO->getArticlespagin();
         return $this->view->render('home', [
+           'articles' => $articles
+        ]);
+    }
+
+    public function listarticles()
+    {
+        $articles = $this->articleDAO->getArticles();
+        return $this->view->render('listarticles', [
            'articles' => $articles
         ]);
     }
