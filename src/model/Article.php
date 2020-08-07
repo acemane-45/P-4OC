@@ -2,8 +2,9 @@
 
 namespace App\src\model;
 
-class Article
+class Article extends Hydrator
 {
+    //*************************Attributs*******************/
     /**
      * @var int
      */
@@ -28,84 +29,66 @@ class Article
      */
     private $createdAt;
 
-    /**
-     * @return int
-     */
+
+    //**************************Constructeur*****************/
+  
+   
+
+   
+   
+    //**************************Getters*********************/
+
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
     public function getTitle()
     {
         return $this->title;
     }
 
-    /**
-     * @param string $title
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
-
-    /**
-     * @return string
-     */
     public function getContent()
     {
         return $this->content;
     }
 
-    /**
-     * @param string $content
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-    }
-    
-    /**
-     * @return string
-     */
     public function getAuthor()
     {
         return $this->author;
     }
 
-    /**
-     * @param string $author
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-    }
-   
-
-    /**
-     * @return \DateTime
-     */
     public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime $createdAt
-     */
+
+   //***************************Setters********************/
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
+   
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+    }
+   
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
     }
+
 }

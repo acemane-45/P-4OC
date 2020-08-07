@@ -7,16 +7,7 @@ use App\src\model\Comment;
 
 class CommentDAO extends DAO
 {
-    private function buildObject($row)
-    {
-        $comment = new Comment();
-        $comment->setId($row['id']);
-        $comment->setPseudo($row['pseudo']);
-        $comment->setContent($row['content']);
-        $comment->setCreatedAt($row['createdAt']);
-        $comment->setFlag($row['flag']);
-        return $comment;
-    }
+   
 
     //récupère les commentaire d'un article
     public function getCommentsFromArticle($articleId)
@@ -25,17 +16,16 @@ class CommentDAO extends DAO
         $result = $this->createQuery($sql, [$articleId]);
         $comments = [];
         foreach ($result as $row) {
-            $commentId = $row['id'];
-            $comments[$commentId] = $this->buildObject($row);
+            $comments[] = new Comment($row);
         }
-        $result->closeCursor();
+        var_dump ($result);
         return $comments;
     }
   
     //ajout commentaire
     public function addComment(Parameter $post, $articleId)
     {
-        $sql = 'INSERT INTO comment (pseudo, content, createdAt, article_id) VALUES (?, ?, NOW(), ?)';
+        $sql = 'INSERT INTO comment (pseudo, content, createdAt, article_id, flag) VALUES (?, ?, NOW(), ?, 0)';
         $this->createQuery($sql, [$post->get('pseudo'), $post->get('content'), $articleId]);
     }
 

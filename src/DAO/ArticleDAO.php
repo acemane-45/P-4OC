@@ -7,20 +7,24 @@ use App\src\model\Article;
 
 class ArticleDAO extends DAO
 {
+  
     private function buildObject($row)
     {
         $article = new Article();
         $article->setId($row['id']);
         $article->setTitle($row['title']);
         $article->setContent($row['content']);
+      
         $article->setCreatedAt($row['createdAt']);
         return $article;
     }
-
+ 
+        
     //Permet de récupérer la liste de tout les articles
     public function getArticles()
     {
-        $sql = 'SELECT id, title, content, createdAt FROM article ORDER BY id DESC';
+
+        $sql = 'SELECT id, title, content, createdAt FROM article ORDER BY id DESC ';
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
@@ -30,10 +34,15 @@ class ArticleDAO extends DAO
         $result->closeCursor();
         return $articles;
     }
+    
+
+
     //pagination
     //Permet de récupérer les 3 dernier articles
     public function getArticlespagin()
     {
+       
+        
         $sql = 'SELECT id, title, content, createdAt FROM article ORDER BY id DESC LIMIT 3';
         $result = $this->createQuery($sql);
         $articles = [];
@@ -44,11 +53,14 @@ class ArticleDAO extends DAO
         $result->closeCursor();
         return $articles;
     }
-
+    
+    
     //Permet de recupérer un article
     public function getArticle($articleId)
     {
+      
         $sql = 'SELECT id, title, content, createdAt FROM article WHERE id = ?';
+       
         $result = $this->createQuery($sql, [$articleId]);
         $article = $result->fetch();
         $result->closeCursor();

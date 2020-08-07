@@ -2,8 +2,10 @@
 
 namespace App\src\model;
 
-class User
+class User  extends Hydrator
 {
+    //*************************Attributs*******************/
+
     /**
      * @var int
      */
@@ -29,81 +31,88 @@ class User
      */
     private $role;
 
-    /**
-     * @return int
-     */
+    //*************************Constructeur****************/
+
+    public function __construct(array $donnees)
+    {
+    
+        $this->hydrate($donnees);
+    
+         if (isset($donnees['id']))
+         {
+             $this->setId($donnees['id']);
+         }
+
+         if (isset($donnees['pseudo']))
+         {
+             $this->setPseudo($donnees['pseudo']);
+         }
+
+         if (isset($donnees['password']))
+         {
+             $this->setPassword($donnees['password']);
+         }
+
+         if (isset($donnees['createdAt']))
+         {
+             $this->setCreatedAt($donnees['createdAt']);
+         }
+
+         if (isset($donnees['role']))
+         {
+             $this->setRole($donnees['role']);
+         }
+    }
+
+    //*************************Getters*********************/
+
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return string
-     */
     public function getPseudo()
     {
         return $this->pseudo;
     }
 
-    /**
-     * @param string $pseudo
-     */
-    public function setPseudo($pseudo)
-    {
-        $this->pseudo = $pseudo;
-    }
-
-    /**
-     * @return string
-     */
     public function getPassword()
     {
         return $this->password;
     }
 
-    /**
-     * @param string $password
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-    }
-
-    /**
-     * @return \DateTime
-     */
     public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
-    /**
-     * @param \DateTime $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return string
-     */
     public function getRole()
     {
         return $this->role;
     }
 
-    /**
-     * @param string $role
-     */
+    //*************************Setters*********************/
+    
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function setPseudo($pseudo)
+    {
+        $this->pseudo = $pseudo;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
     public function setRole($role)
     {
         $this->role = $role;
