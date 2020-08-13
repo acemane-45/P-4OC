@@ -33,6 +33,16 @@ class User  extends Hydrator
 
     
 
+    //**************************Constructeur*****************/
+     /**
+     * User constructor.
+     *
+     * @param $data
+     */
+    public function __construct($data)
+    {
+        $this->hydrate($data);
+    }
    
 
     //*************************Getters*********************/

@@ -18,7 +18,7 @@ class CommentDAO extends DAO
         foreach ($result as $data) {
             $comments[] = new Comment($data);
         }
-        var_dump ($data);
+      
         return $comments;
     }
   

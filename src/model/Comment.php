@@ -2,7 +2,7 @@
 
 namespace App\src\model;
 
-class Comment 
+class Comment extends Hydrator
 {
     //*************************Attributs*******************/
 
@@ -98,18 +98,4 @@ class Comment
         $this->flag = $flag;
     }
 
-    /**
-     * @param $data
-     */
-    public function hydrate($data)
-    {
-        foreach ($data as $key => $value) {
-           
-            $method = 'set'.ucfirst($key);
-
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
 }

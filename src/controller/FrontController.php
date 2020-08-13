@@ -26,7 +26,7 @@ class FrontController extends Controller
     {
         $article = $this->articleDAO->getArticle($articleId);
         $comments = $this->commentDAO->getCommentsFromArticle($articleId);
-        var_dump ($comments);
+        
         return $this->view->render('single', [
             'article' => $article,
             'comments' => $comments

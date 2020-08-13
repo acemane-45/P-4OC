@@ -2,7 +2,7 @@
 
 namespace App\src\model;
 
-class Article 
+class Article extends Hydrator
 {
     //*************************Attributs*******************/
     /**
@@ -33,7 +33,7 @@ class Article
     //**************************Constructeur*****************/
   
      /**
-     * Comment constructor.
+     * Article constructor.
      *
      * @param $data
      */
@@ -98,18 +98,5 @@ class Article
         $this->createdAt = $createdAt;
     }
 
-     /**
-     * @param $data
-     */
-    public function hydrate($data)
-    {
-        foreach ($data as $key => $value) {
-           
-            $method = 'set'.ucfirst($key);
-
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
-    }
+    
 }
