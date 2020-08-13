@@ -8,16 +8,16 @@ use App\src\model\Article;
 class ArticleDAO extends DAO
 {
   
-    private function buildObject($row)
-    {
-        $article = new Article();
-        $article->setId($row['id']);
-        $article->setTitle($row['title']);
-        $article->setContent($row['content']);
+//**  private function buildObject($row)
+  //  {
+    //    $article = new Article();
+      //  $article->setId($row['id']);
+       // $article->setTitle($row['title']);
+      //  $article->setContent($row['content']);
       
-        $article->setCreatedAt($row['createdAt']);
-        return $article;
-    }
+     //   $article->setCreatedAt($row['createdAt']);
+     //   return $article;
+    //** */}*/
  
         
     //Permet de récupérer la liste de tout les articles
@@ -27,9 +27,9 @@ class ArticleDAO extends DAO
         $sql = 'SELECT id, title, content, createdAt FROM article ORDER BY id DESC ';
         $result = $this->createQuery($sql);
         $articles = [];
-        foreach ($result as $row){
-            $articleId = $row['id'];
-            $articles[$articleId] = $this->buildObject($row);
+        foreach ($result as $data){
+            
+            $articles[] = new Article($data);
         }
         $result->closeCursor();
         return $articles;
@@ -46,9 +46,9 @@ class ArticleDAO extends DAO
         $sql = 'SELECT id, title, content, createdAt FROM article ORDER BY id DESC LIMIT 3';
         $result = $this->createQuery($sql);
         $articles = [];
-        foreach ($result as $row){
-            $articleId = $row['id'];
-            $articles[$articleId] = $this->buildObject($row);
+        foreach ($result as $data){
+            
+            $articles[] = new Article($data);
         }
         $result->closeCursor();
         return $articles;
@@ -59,14 +59,15 @@ class ArticleDAO extends DAO
     public function getArticle($articleId)
     {
       
-        $sql = 'SELECT id, title, content, createdAt FROM article WHERE id = ?';
-       
+        $sql = 'SELECT id, title, content, createdAt FROM article WHERE id = ?';      
         $result = $this->createQuery($sql, [$articleId]);
-        $article = $result->fetch();
-        $result->closeCursor();
-        return $this->buildObject($article);
+      
+        foreach ($result as $data){
+            
+            $article = new Article($data);
+        }
+        return $article;
     }
-
      
 
     //Permet d'ajouter un article dans la BDD

@@ -2,7 +2,7 @@
 
 namespace App\src\model;
 
-class Comment extends Hydrator
+class Comment 
 {
     //*************************Attributs*******************/
 
@@ -26,9 +26,22 @@ class Comment extends Hydrator
      */
     private $createdAt;
 
+      /**
+     * @var bool
+     */
+    private $flag;
+
     //*************************Constructeur****************/
 
-   
+    /**
+     * Comment constructor.
+     *
+     * @param $data
+     */
+    public function __construct($data)
+    {
+        $this->hydrate($data);
+    }
 
     //*************************Getters*********************/
 
@@ -85,4 +98,18 @@ class Comment extends Hydrator
         $this->flag = $flag;
     }
 
+    /**
+     * @param $data
+     */
+    public function hydrate($data)
+    {
+        foreach ($data as $key => $value) {
+           
+            $method = 'set'.ucfirst($key);
+
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+    }
 }

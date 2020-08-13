@@ -15,10 +15,10 @@ class CommentDAO extends DAO
         $sql = 'SELECT id, pseudo, content, createdAt, flag FROM comment WHERE article_id = ? ORDER BY createdAt DESC';
         $result = $this->createQuery($sql, [$articleId]);
         $comments = [];
-        foreach ($result as $row) {
-            $comments[] = new Comment($row);
+        foreach ($result as $data) {
+            $comments[] = new Comment($data);
         }
-        var_dump ($result);
+        var_dump ($data);
         return $comments;
     }
   
@@ -56,11 +56,9 @@ class CommentDAO extends DAO
         $sql = 'SELECT id, pseudo, content, createdAt, flag FROM comment WHERE flag = ? ORDER BY createdAt DESC';
         $result = $this->createQuery($sql, [1]);
         $comments = [];
-        foreach ($result as $row) {
-            $commentId = $row['id'];
-            $comments[$commentId] = $this->buildObject($row);
+        foreach ($result as $data) {
+            $comments[] = new Comment($data);
         }
-        $result->closeCursor();
         return $comments;
     }
 }

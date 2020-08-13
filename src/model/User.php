@@ -31,38 +31,9 @@ class User  extends Hydrator
      */
     private $role;
 
-    //*************************Constructeur****************/
-
-    public function __construct(array $donnees)
-    {
     
-        $this->hydrate($donnees);
-    
-         if (isset($donnees['id']))
-         {
-             $this->setId($donnees['id']);
-         }
 
-         if (isset($donnees['pseudo']))
-         {
-             $this->setPseudo($donnees['pseudo']);
-         }
-
-         if (isset($donnees['password']))
-         {
-             $this->setPassword($donnees['password']);
-         }
-
-         if (isset($donnees['createdAt']))
-         {
-             $this->setCreatedAt($donnees['createdAt']);
-         }
-
-         if (isset($donnees['role']))
-         {
-             $this->setRole($donnees['role']);
-         }
-    }
+   
 
     //*************************Getters*********************/
 

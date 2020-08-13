@@ -41,7 +41,6 @@ abstract class DAO
         {
             $result = $this->checkConnection()->prepare($sql);
             $test=$result->execute($parameters);
-            var_dump ($test);
             return $result;
         }
         $result = $this->checkConnection()->query($sql);
