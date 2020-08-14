@@ -1,6 +1,6 @@
 <?php $this->title = "Inscription"; ?>
 
-<div>
+<div class = 'register'>
     <form method="post" action="../public/index.php?route=register">
         <label for="pseudo">Pseudo</label><br>
         <input type="text" id="pseudo" name="pseudo" value="<?= isset($post) ? htmlspecialchars($post->get('pseudo')): ''; ?>"><br>

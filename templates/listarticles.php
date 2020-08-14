@@ -7,7 +7,7 @@
 foreach ($articles as $article)
 {
     ?>
-    <div>
+    <div class = 'list_article'>
         <h2><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a></h2>
         <p><?= htmlspecialchars($article->getContent());?></p>
        

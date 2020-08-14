@@ -1,7 +1,7 @@
 <?php $this->title = "Connexion"; ?>
 
 <?= $this->session->show('error_login'); ?>
-<div>
+<div class='pseudo'>
     <form method="post" action="../public/index.php?route=login">
         <label for="pseudo">Pseudo</label><br>
         <input type="text" id="pseudo" name="pseudo"><br>

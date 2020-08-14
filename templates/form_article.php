@@ -7,7 +7,7 @@ $content = isset($article) && $article->getContent() ? htmlspecialchars($article
 ?>
 
 
-
+<div class = 'form_article'>
 <form method="post" action="../public/index.php?route=<?= $route; ?>">
     <label for="title">Titre</label><br>
     <input type="text" id="title" name="title" value="<?= isset($post) ? htmlspecialchars($post->get('title')): ''; ?>"><br>
@@ -18,3 +18,4 @@ $content = isset($article) && $article->getContent() ? htmlspecialchars($article
     <input type="submit" value="<?= $submit; ?>" id="submit" name="submit">
 </form>
 
+</div>

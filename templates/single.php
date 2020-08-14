@@ -1,7 +1,7 @@
 <?php $this->title = "Article"; ?>
 
 
-<div>
+<div class='article'>
     <h2><?= htmlspecialchars($article->getTitle());?></h2>
        <p><?= htmlspecialchars($article->getContent());?></p>
     
