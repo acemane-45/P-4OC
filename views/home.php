@@ -11,34 +11,12 @@
 <?= $this->session->show('delete_account'); ?>
 
     
-
-<div class="menu_admin">
-<ul>
-
-<?php
-if ($this->session->get('pseudo')) {
-    ?>
-   <li> <a href="../public/index.php?route=logout">Deconnexion</a></li>
-   <li> <a href="../public/index.php?route=profile">Profil</a></li>
-    <?php if($this->session->get('role') === 'admin') { ?>
-      <li>  <a href="../public/index.php?route=administration">Administration</a></li>
-    <?php } 
-} else {
-    ?>
-    
-    
-   <li> <a href="../public/index.php?route=register">Inscription</a></li>
-   <li> <a href="../public/index.php?route=login">Connexion</a></li>
-    <?php
-}
-?>
-</div>
-
+<ul></ul>
 <?php
 foreach ($articles as $article)
 {
     ?>
-    <div>
+    <div class='article_view'>
         <h2><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars_decode($article->getId());?>"><?= htmlspecialchars_decode($article->getTitle());?></a></h2>
       <p>
       <?php

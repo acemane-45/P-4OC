@@ -3,7 +3,7 @@
 
 <div class='article'>
     <h2><?= htmlspecialchars($article->getTitle());?></h2>
-       <p><?= htmlspecialchars($article->getContent());?></p>
+       <p><?= html_entity_decode($article->getContent());?></p>
     
     <p>Créé le : <?= htmlspecialchars($article->getCreatedAt());?></p>
 </div>
@@ -26,7 +26,7 @@
        {
         ?>
         <h4><?= htmlspecialchars($comment->getPseudo());?></h4>
-        <p><?= htmlspecialchars($comment->getContent());?></p>
+        <p><?= html_entity_decode($comment->getContent());?></p>
         <p>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
         <?php
         if($comment->isFlag()) {

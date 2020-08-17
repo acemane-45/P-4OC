@@ -19,9 +19,9 @@ class View
 
     public function render($template, $data = [])
     {
-        $this->file = '../templates/'.$template.'.php';
+        $this->file = '../views/'.$template.'.php';
         $content  = $this->renderFile($this->file, $data);
-        $view = $this->renderFile('../templates/base.php', [
+        $view = $this->renderFile('../views/base.php', [
             'title' => $this->title,
             'content' => $content,
             'session' => $this->session
