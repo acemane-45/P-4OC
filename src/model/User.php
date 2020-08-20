@@ -2,7 +2,7 @@
 
 namespace App\src\model;
 
-class User  extends Hydrator
+class User  
 {
     //*************************Attributs*******************/
 
@@ -34,15 +34,6 @@ class User  extends Hydrator
     
 
     //**************************Constructeur*****************/
-     /**
-     * User constructor.
-     *
-     * @param $data
-     */
-    public function __construct($data)
-    {
-        $this->hydrate($data);
-    }
    
 
     //*************************Getters*********************/

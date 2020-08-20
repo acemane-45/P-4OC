@@ -9,7 +9,15 @@ use App\src\model\User;
 class UserDAO extends DAO
 {
 
- 
+    private function buildObject($row)
+    {
+        $user = new User();
+        $user->setId($row['id']);
+        $user->setPseudo($row['pseudo']);
+        $user->setCreatedAt($row['createdAt']);
+        $user->setRole($row['name']);
+        return $user;
+    }
 
     //Méthode pour récupérer la liste des utilisateurs 
     public function getUsers()
@@ -17,10 +25,11 @@ class UserDAO extends DAO
         $sql = 'SELECT user.id, user.pseudo, user.createdAt, role.name FROM user INNER JOIN role ON user.role_id = role.id ORDER BY user.id DESC';
         $result = $this->createQuery($sql);
         $users = [];
-        foreach ($result as $data) {
-            $users[] = new User($data);
+        foreach ($result as $row){
+            $userId = $row['id'];
+            $users[$userId] = $this->buildObject($row);
         }
-       
+        $result->closeCursor();
         return $users;
     }
 

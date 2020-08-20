@@ -21,42 +21,50 @@
 </head>
 
 <body>
-<header>
-    <div class="entete">
-    <div class="auteur">JEAN FORTEROCHE</div>
-<div class="titre">
-<h1>Bienvenue sur mon blog</h1>
-<h2>Un billet pour l'ALASKA</h2>
-<hr>
-</div>
-</div>
+  <header>
+    <div class="entete">   
+      <h1>JEAN FORTEROCHE</h1>
 
-<nav class="menu">
-<ul>
-<li><a href="../public/index.php">Accueil</a></li>
-<li><a href="../public/index.php?route=listarticles">liste des articles</a></li>
+        <div class="titre">
 
-<?php
-if ($this->session->get('pseudo')) {
-    ?>
-   <li> <a href="../public/index.php?route=logout">Deconnexion</a></li>
-   <li> <a href="../public/index.php?route=profile">Profil</a></li>
-    <?php if($this->session->get('role') === 'admin') { ?>
-      <li>  <a href="../public/index.php?route=administration">Administration</a></li>
-    <?php } 
-} else {
-    ?>
+           <h2>Un billet pour l'ALASKA</h2>
+ 
+           <h2>Bienvenue sur mon blog</h2>
+
+           <hr>
+        </div>
+    </div>
+
+
+   
+    <div id = "menu1"class="menu ">
+      <ul>    
+        <li id="btn"><a href="../public/index.php">Accueil</a></li>
+        <li id="btn"><a href="../public/index.php?route=listarticles">liste des articles</a></li>
+
+         <?php
+           if ($this->session->get('pseudo')) {
+        ?>
+        <li id="btn"> <a href="../public/index.php?route=logout">Deconnexion</a></li>
+        <li id="btn" > <a href="../public/index.php?route=profile">Profil</a></li>
+       
+        <?php if($this->session->get('role') === 'admin') { ?>
+        <li id="btn" >  <a href="../public/index.php?route=administration">Administration</a></li>
     
-    
-   <li> <a href="../public/index.php?route=register">Inscription</a></li>
-   <li> <a href="../public/index.php?route=login">Connexion</a></li>
-    <?php
-}
-?>
+        <?php } 
+        } else {
+        ?>
 
-</nav>
+         <li id="btn" > <a href="../public/index.php?route=register">Inscription</a></li>
+         <li id="btn"> <a href="../public/index.php?route=login">Connexion</a></li>
 
-</header>
+         <?php
+        }
+        ?>
+   
+    </div>
+
+    </header>
 
     <div id="content">
     
@@ -66,8 +74,9 @@ if ($this->session->get('pseudo')) {
     </div>
     <footer>
   
- 
- 
-</footer>
+     <p>Projet 4 DWJ OpenClassRooms  </p>
+     <p> 2020 Tous droits réservés.</p>
+    
+    </footer>
 </body>
 
