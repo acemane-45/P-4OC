@@ -24,7 +24,7 @@
         ?>
         <tr>
             
-            <td id="btn"class="btn_art"><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a></td>
+            <td class="btn"><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a></td>
             <td class="list_article"> <?php
                                  if(strlen($article->getContent()) <=100)
                                {
@@ -50,9 +50,9 @@
     }
     ?>
 </table>
-<br>
+
 <a class="news" href="../public/index.php?route=addArticle">Nouvel article</a>
-<br>
+
 </div>
 <div id="comment_admin" class="comment_admin">
 <h2>Commentaires signalés</h2>
@@ -78,7 +78,7 @@
                <a href="../public/index.php?route=deleteComment&commentId=<?= $comment->getId(); ?>">Supprimer le commentaire</a>
             </td>
         </tr>
-        <br>
+       
         <?php
     }
     ?>

@@ -13,7 +13,7 @@ $content = isset($article) && $article->getContent() ? htmlspecialchars($article
     <input type="text" id="title" name="title" value="<?= isset($post) ? html_entity_decode($post->get('title')): ''; ?>"><br>
     <?= isset($errors['title']) ? $errors['title'] : ''; ?>
     <label for="content">Contenu</label><br>
-    <textarea id="myTextarea" name="content"><?= isset($post) ? html_entity_decode($post->get('content')): ''; ?></textarea><br>
+    <textarea id="myText" name="content"><?= isset($post) ? html_entity_decode($post->get('content')): ''; ?></textarea><br>
     <?= isset($errors['content']) ? $errors['content'] : ''; ?>
     <input type="submit" value="<?= $submit; ?>" id="submit" name="submit">
 </form>

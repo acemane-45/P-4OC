@@ -7,20 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href ="css/style.css" rel="stylesheet" type="text/css" >
     <script src="https://cdn.tiny.cloud/1/0wbmvo8vn0e8rwzz6wz60khgj1e86n1soo6sz9wjf6qtdaer/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script language="javascript" type="text/javascript">
-        tinyMCE.init({
-            selector: 'textarea',
-            plugin: '',
-            toolbar_mode: 'floating',
-                entity_encoding : "raw",
-                forced_root_block : false,
-                force_br_newlines : true,
-                force_p_newlines : false
-                });
-</script>
+    <script>
+    tinymce.init({
+      selector: '#myText',
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+    });
+  </script>
 </head>
 
 <body>
+
   <header>
     <div class="entete">   
       <h1>JEAN FORTEROCHE</h1>
@@ -28,7 +25,6 @@
         <div class="titre">
 
            <h2>Un billet pour l'ALASKA</h2>
- 
            <h2>Bienvenue sur mon blog</h2>
 
            <hr>
@@ -39,24 +35,24 @@
    
     <div id = "menu1"class="menu ">
       <ul>    
-        <li id="btn"><a href="../public/index.php">Accueil</a></li>
-        <li id="btn"><a href="../public/index.php?route=listarticles">liste des articles</a></li>
+        <li class="btn"><a href="../public/index.php">Accueil</a></li>
+        <li class="btn"><a href="../public/index.php?route=listarticles">liste des articles</a></li>
 
          <?php
            if ($this->session->get('pseudo')) {
         ?>
-        <li id="btn"> <a href="../public/index.php?route=logout">Deconnexion</a></li>
-        <li id="btn" > <a href="../public/index.php?route=profile">Profil</a></li>
+        <li class="btn"> <a href="../public/index.php?route=logout">Deconnexion</a></li>
+        <li class="btn" > <a href="../public/index.php?route=profile">Profil</a></li>
        
         <?php if($this->session->get('role') === 'admin') { ?>
-        <li id="btn" >  <a href="../public/index.php?route=administration">Administration</a></li>
+        <li class="btn" >  <a href="../public/index.php?route=administration">Administration</a></li>
     
         <?php } 
         } else {
         ?>
 
-         <li id="btn" > <a href="../public/index.php?route=register">Inscription</a></li>
-         <li id="btn"> <a href="../public/index.php?route=login">Connexion</a></li>
+         <li class="btn" > <a href="../public/index.php?route=register">Inscription</a></li>
+         <li class="btn"> <a href="../public/index.php?route=login">Connexion</a></li>
 
          <?php
         }

@@ -15,19 +15,33 @@
 </div>
 <br>
 
-
-<div id="comments" class="text-left" style="margin-left: 50px">
+<?php
+           if ($this->session->get('pseudo')) {
+            ?>
+<div id="comments" >
     <h3>Ajouter un commentaire</h3>
     <?php include('form_comment.php'); ?>
+    <?php
+} else {
+   ?>
+   Vous devez vous connecter pour ajoutée un commentaire
+    
+ 
+<?php
+}
+?>
+
     <h3>Commentaires</h3>
+    
    <?php
 
        foreach ($comments as $comment)
        {
         ?>
-        <h4><?= htmlspecialchars($comment->getPseudo());?></h4>
-        <p><?= html_entity_decode($comment->getContent());?></p>
-        <p>Posté le <?= htmlspecialchars($comment->getCreatedAt());?></p>
+        <div class="comcom">
+        <h4><?= strip_tags($comment->getPseudo());?></h4>
+        <p><?= strip_tags($comment->getContent());?></p>
+        <p>Posté le <?= strip_tags($comment->getCreatedAt());?></p>
         <?php
         if($comment->isFlag()) {
             ?>
@@ -35,10 +49,11 @@
             <?php
         } else {
             ?>
-            <p><a id="btn"  href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
+            <p><a class="btn"  href="../public/index.php?route=flagComment&commentId=<?= $comment->getId(); ?>">Signaler le commentaire</a></p>
             <?php
         }
         ?>
+        </div>
         <br>
         <?php
     }

@@ -8,7 +8,7 @@ foreach ($articles as $article)
 {
     ?>
     <div id='list_article' class = 'list_article'>
-        <h2 id="btn"><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a></h2>
+        <h2 class="btn"><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>"><?= htmlspecialchars($article->getTitle());?></a></h2>
         <p> <?php
       if(strlen($article->getContent()) <=100)
       {
