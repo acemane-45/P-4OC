@@ -32,14 +32,14 @@ class CommentDAO extends DAO
     //signalement commentaire
     public function flagComment($commentId)
     {
-        $sql = 'UPDATE comment SET flag = ? WHERE id = ?';
+        $sql = 'UPDATE comment SET flag = 1 WHERE id = ?';
         $this->createQuery($sql, [1, $commentId]);
     }
 
     //designalisé un commentaire
     public function unflagComment($commentId)
     {
-        $sql = 'UPDATE comment SET flag = ? WHERE id = ?';
+        $sql = 'UPDATE comment SET flag = 0 WHERE id = ?';
         $this->createQuery($sql, [0, $commentId]);
     }
 
@@ -59,6 +59,7 @@ class CommentDAO extends DAO
         foreach ($result as $data) {
             $comments[] = new Comment($data);
         }
+        
         return $comments;
     }
 }

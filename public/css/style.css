@@ -16,7 +16,6 @@
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
-        color: white;
         font-size: 25px;
         color: red;
     }
@@ -40,8 +39,7 @@
         border: solid 1px black;
         background: white;
         color: black;
-        min-width: 50%;
-        max-width: 60%;
+        min-width: 60%;
     }
     /*----------- MENU -----------*/
     
@@ -68,10 +66,10 @@
         transform: scale(1);
         transition-property: transform;
         transition-duration: 100ms;
-        color: wheat;
+        color: brown;
     }
     
-    .btn:hover {
+    .btn :hover {
         transform: scale(1.15);
     }
     /*------------ ENTETE -----------*/

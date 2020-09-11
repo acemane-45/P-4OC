@@ -21,16 +21,22 @@ class FrontController extends Controller
            'articles' => $articles
         ]);
     }
-
+   
     public function article($articleId)
     {
-        $article = $this->articleDAO->getArticle($articleId);
-        $comments = $this->commentDAO->getCommentsFromArticle($articleId);
         
-        return $this->view->render('single', [
-            'article' => $article,
-            'comments' => $comments
-        ]);
+        $article = $this->articleDAO->getArticle($articleId);
+            
+        $comments = $this->commentDAO->getCommentsFromArticle($articleId);
+       
+      if (isset($article) ){ 
+      return $this->view->render('single', [
+                'article' => $article,
+                'comments' => $comments
+            ]);      
+            }else  {
+                     return $this->view->render('error_404');
+                   }      
     }
 
     public function addComment(Parameter $post, $articleId)

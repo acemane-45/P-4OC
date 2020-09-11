@@ -3,14 +3,14 @@
 <head>
     <title><?= $title ?></title>
     <meta name="description" content="Billet simple pour l'Alaska Un roman de Jean Forteroche" />
-    <meta charset="UTF-8" />
+    <meta charset=UTF-8/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href ="css/style.css" rel="stylesheet" type="text/css" >
     <script src="https://cdn.tiny.cloud/1/0wbmvo8vn0e8rwzz6wz60khgj1e86n1soo6sz9wjf6qtdaer/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
     tinymce.init({
       selector: '#myText',
-      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      plugins: '',
       toolbar_mode: 'floating',
     });
   </script>

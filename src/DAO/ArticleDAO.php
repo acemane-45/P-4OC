@@ -56,18 +56,20 @@ class ArticleDAO extends DAO
     
     
     //Permet de recupérer un article
-    public function getArticle($articleId)
+    public function getArticle( $articleId)
     {
       
         $sql = 'SELECT id, title, content, createdAt FROM article WHERE id = ?';      
         $result = $this->createQuery($sql, [$articleId]);
       
         foreach ($result as $data){
-            
+          
             $article = new Article($data);
-        }
+       }
+       
         return $article;
     }
+    
      
 
     //Permet d'ajouter un article dans la BDD

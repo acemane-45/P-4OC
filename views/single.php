@@ -24,7 +24,7 @@
     <?php
 } else {
    ?>
-   Vous devez vous connecter pour ajoutée un commentaire
+   Vous devez vous connecter pour ajouter un commentaire
     
  
 <?php
