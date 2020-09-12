@@ -18,7 +18,7 @@ foreach ($articles as $article)
     ?>
     <div class='article_view'>
         <h2 class="btn"><a href="../public/index.php?route=article&articleId=<?= htmlspecialchars_decode($article->getId());?>"><?= htmlspecialchars_decode($article->getTitle());?></a></h2>
-      <p>
+      
       <?php
       if(strlen($article->getContent()) <=100)
       {
@@ -33,7 +33,7 @@ foreach ($articles as $article)
       }
       echo $content; 
       ?>
-      </p>
+      
        
         <p>Creer le : <?= htmlspecialchars($article->getCreatedAt());?></p>
     </div>
